@@ -47,16 +47,16 @@ export default {
         }
 
         const io = new IntersectionObserver((entries, observer) => {
-            if (!entries.some(entry => entry.isIntersecting)) {
-                return;
+            if (entries[0].isIntersecting) {
+                this.nextPage();
+                this.getPhotos().then(createGallery).catch(err => {
+                    if (err.isAxiosError) {
+                        observer.disconnect();
+                    }
+                });
+                refs.gallery.append(this.observerTarget);
             }
-            this.nextPage();
-            this.getPhotos().then(createGallery).catch(err => {
-                if (err.isAxiosError) {
-                    observer.disconnect();
-                }
-            });
-            refs.gallery.append(this.observerTarget);
+
         }, options);
         io.observe(this.observerTarget);
     },
