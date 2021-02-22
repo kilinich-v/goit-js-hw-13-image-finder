@@ -29,6 +29,9 @@ export default {
 
     async getPhotos() {
         try {
+            if (!this.query) {
+                return;
+            }
             return await axios.get(`/?image_type=photo&orientation=horizontal&q=${this.query}&page=${this.page}&per_page=12&key=${this.apiKey}`);
         } catch (err) {
             throw err;
@@ -50,13 +53,13 @@ export default {
             if (entries[0].isIntersecting) {
                 this.nextPage();
                 this.getPhotos().then(createGallery).catch(err => {
+                    console.dir(err);
                     if (err.isAxiosError) {
                         observer.disconnect();
                     }
                 });
                 refs.gallery.append(this.observerTarget);
             }
-
         }, options);
         io.observe(this.observerTarget);
     },

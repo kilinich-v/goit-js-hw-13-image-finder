@@ -1,4 +1,7 @@
+@import './scss/animations';
 @import './scss/gallery';
+@import './scss/search-form';
+@import './scss/result';
 
 html {
   box-sizing: border-box;
@@ -13,7 +16,17 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-family: Montserrat, sans-serif;
+  background: linear-gradient(
+    125deg,
+    #57b0573d,
+    #57b0ad3d,
+    #5d57b03d,
+    #b057a93d,
+    #b057573d,
+    #aeb0573d
+  );
+  background-size: 1200% 1200%;
+
+  animation: animationGradient 60s ease-in-out infinite;
 }

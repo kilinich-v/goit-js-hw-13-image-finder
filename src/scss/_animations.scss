@@ -1,0 +1,33 @@
+@-webkit-keyframes animationGradient {
+  0% {
+    background-position: 0% 37%;
+  }
+  50% {
+    background-position: 100% 64%;
+  }
+  100% {
+    background-position: 0% 37%;
+  }
+}
+@-moz-keyframes animationGradient {
+  0% {
+    background-position: 0% 37%;
+  }
+  50% {
+    background-position: 100% 64%;
+  }
+  100% {
+    background-position: 0% 37%;
+  }
+}
+@keyframes animationGradient {
+  0% {
+    background-position: 0% 37%;
+  }
+  50% {
+    background-position: 100% 64%;
+  }
+  100% {
+    background-position: 0% 37%;
+  }
+}

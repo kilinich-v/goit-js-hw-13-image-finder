@@ -1,0 +1,29 @@
+.result {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  &__title {
+    font-weight: 500;
+  }
+
+  &__query {
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(
+      45deg,
+      #57b057,
+      #57b0ad,
+      #5d57b0,
+      #b057a9,
+      #b05757,
+      #aeb057
+    );
+    background-size: 1200% 1200%;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: animationGradient 30s ease infinite;
+  }
+}
