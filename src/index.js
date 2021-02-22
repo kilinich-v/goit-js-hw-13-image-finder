@@ -12,17 +12,17 @@ refs.gallery.addEventListener('click', handleModal);
 
 function handleQuery(event) {
     event.preventDefault();
-    api.query = event.target[0].value;
-    console.log();
-    api.resetPage();
-    // if (!api.query) {
-    //     api.clearGallery();
-    //     notice();
-    //     return;
-    // }
+
     api.clearGallery();
+    api.query = event.target[0].value;
+
+
+    if (!api.query) {
+        createTitle(api.query);
+        return;
+    }
+
     api.getPhotos().then(photos => {
-        api.nextPage();
         createTitle(api.query);
         createGallery(photos);
         api.observeGallery();

@@ -40,27 +40,22 @@ export default {
     },
 
     clearGallery() {
+        this.resetPage();
         refs.gallery.innerHTML = '';
         refs.gallery.append(this.observerTarget);
     },
 
     observeGallery() {
-        const options = {
-            rootMargin: '200px',
-        }
-
         const io = new IntersectionObserver((entries, observer) => {
             if (entries[0].isIntersecting) {
                 this.nextPage();
                 this.getPhotos().then(createGallery).catch(err => {
-                    console.dir(err);
-                    if (err.isAxiosError) {
-                        observer.disconnect();
-                    }
+                    observer.disconnect();
                 });
                 refs.gallery.append(this.observerTarget);
             }
-        }, options);
+        });
+
         io.observe(this.observerTarget);
     },
 }
